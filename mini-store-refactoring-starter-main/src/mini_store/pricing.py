@@ -26,19 +26,16 @@ def calculate_order_total(
         discounted_subtotal = 0
 
     if country == "MX":
-        tax = discounted_subtotal * 0.16
-    else:
-        tax = 0.0
-
-    if country == "MX":
         if discounted_subtotal >= 1000:
             shipping = 0.0
         else:
             shipping = 99.0
+        tax = discounted_subtotal * 0.16
     else:
         if discounted_subtotal >= 2000:
             shipping = 199.0
         else:
             shipping = 299.0
+        tax = 0.0
 
     return round(discounted_subtotal + tax + shipping, 2)
