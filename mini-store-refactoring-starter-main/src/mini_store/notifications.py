@@ -27,6 +27,7 @@ class NotificationService:
             subject = f"Order {order_id} shipped"
             message = (
                 f"Hello {customer.name}, your order {order_id} shipped. "
+                f"Tracking: {tracking_code}.\n"
                 f"Tracking: {tracking_code}."
             )
             self.email_sender.send(customer.email, subject, message)
