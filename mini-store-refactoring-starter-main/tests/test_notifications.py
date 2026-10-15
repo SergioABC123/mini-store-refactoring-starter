@@ -100,3 +100,20 @@ def test_unsupported_channel_raises_value_error():
         service.send_shipping_update(customer, "A-100", "TRACK-9")
 
 
+def test_custom_channel_can_be_registered():
+    custom_channel = Mock()
+    service = NotificationService(
+        Mock(), Mock(), Mock(), channels={"custom": custom_channel}
+    )
+    customer = make_customer("custom")
+
+    service.send_order_confirmation(customer, "A-100")
+    custom_channel.send_order_confirmation.assert_called_once_with(customer, "A-100")
+
+    service.send_shipping_update(customer, "A-100", "TRACK-9")
+    custom_channel.send_shipping_update.assert_called_once_with(
+        customer, "A-100", "TRACK-9"
+    )
+
+
+
