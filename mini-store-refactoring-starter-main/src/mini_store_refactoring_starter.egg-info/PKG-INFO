@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: mini-store-refactoring-starter
+Version: 0.1.0
+Summary: Starter repository for a software design refactoring practice
+Requires-Python: >=3.10
+Provides-Extra: test
+Requires-Dist: pytest>=8.0; extra == "test"
+Requires-Dist: pytest-cov>=5.0; extra == "test"
